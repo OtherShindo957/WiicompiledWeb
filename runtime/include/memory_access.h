@@ -150,7 +150,7 @@ MKW_MEMORY_FORCE_INLINE bool TryGetPointerFast(uint32_t address, size_t length, 
     }
     const uint32_t offset = address & kPageMask;
     const auto& entry = g_pageTable[page];
-    if (!entry.base || offset + length > entry.limit) {
+    if (!entry.base || offset > entry.limit || length > entry.limit - offset) {
         pointer = nullptr;
         return false;
     }
@@ -197,7 +197,7 @@ MKW_MEMORY_FORCE_INLINE bool TryGetWritablePointerFast(
             // the same executable-write policy as a sparse-table hit.
             const uint32_t offset = address & kPageMask;
             const auto& entry = g_pageTable[coarsePage];
-            if (!entry.base || offset + length > entry.limit)
+            if (!entry.base || offset > entry.limit || length > entry.limit - offset)
                 return false;
             pointer = entry.base + offset;
         }
@@ -534,20 +534,28 @@ MKW_MEMORY_FORCE_INLINE void WriteResolvedFloat64(uint8_t* r, uint32_t o, uint32
 // cannot distinguish adjacent special Wii pages. The general FlatRead*/
 // FlatWrite* helpers then use the checked page-table path, which materializes
 // deferred reads and applies executable-write/MMIO policy before touching RAM.
-// FlatWriteRam* remains direct because the translator emits it only for
-// addresses it has proven are ordinary RAM.
+// FlatWriteRam* remains direct on native hosts because the translator proves
+// ordinary RAM. Compact backing always resolves those stores through policy too.
 
 template <typename T>
 MKW_MEMORY_FORCE_INLINE T FlatLoad(uint32_t address) {
+#if defined(MKW_CHECKED_GUEST_MEMORY)
+    return ReadResolvedFallback<T>(address);
+#else
     T value{};
     std::memcpy(&value, MKW_FLAT_GUEST_BASE + address, sizeof(T));
     return MaybeByteSwap(value);
+#endif
 }
 
 template <typename T>
 MKW_MEMORY_FORCE_INLINE void FlatStore(uint32_t address, T value) {
+#if defined(MKW_CHECKED_GUEST_MEMORY)
+    WriteResolvedFallback<T>(address, value);
+#else
     const T swapped = MaybeByteSwap(value);
     std::memcpy(MKW_FLAT_GUEST_BASE + address, &swapped, sizeof(T));
+#endif
 }
 
 MKW_MEMORY_FORCE_INLINE uint8_t FlatRead8(uint32_t address) {

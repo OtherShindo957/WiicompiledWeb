@@ -15,7 +15,10 @@ namespace GuestFlat {
 // of a global.
 inline constexpr uint64_t kGuestSpaceSize = 0x1'0000'0000ull;
 inline constexpr size_t kGuestPageSize = 0x1000;
-#if defined(__x86_64__)
+#if defined(MKW_CHECKED_GUEST_MEMORY)
+// No native guest view exists. All access helpers must use checked backing.
+inline constexpr uintptr_t kFixedFlatGuestBase = 0;
+#elif defined(__x86_64__)
 // 16 TiB: clear of the Windows ASan shadow (32 TiB) and of the usual image/heap
 // placement.
 inline constexpr uintptr_t kFixedFlatGuestBase = 0x0000'1000'0000'0000ull;
@@ -73,11 +76,13 @@ bool IsActive();
 // fold this to a compile-time false: it appears in every flat access and must
 // not become a hot-path load. Only AArch64, where the page size is a kernel
 // configuration (4/16/64 KiB), has to probe it at runtime.
-#if defined(_WIN32) || defined(__x86_64__)
+#if !defined(MKW_CHECKED_GUEST_MEMORY) && (defined(_WIN32) || defined(__x86_64__))
 #define MKW_GUEST_FLAT_FIXED_PAGE_SIZE 1
 #endif
 
-#if defined(MKW_GUEST_FLAT_FIXED_PAGE_SIZE)
+#if defined(MKW_CHECKED_GUEST_MEMORY)
+inline constexpr bool RequiresCheckedAccess() noexcept { return true; }
+#elif defined(MKW_GUEST_FLAT_FIXED_PAGE_SIZE)
 inline constexpr bool RequiresCheckedAccess() noexcept { return false; }
 #else
 extern bool g_requiresCheckedAccess;

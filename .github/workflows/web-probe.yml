@@ -2,9 +2,9 @@ name: Web platform probe
 on:
   push:
     branches: [main, 'web/**']
-    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
+    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/src/memory.cpp', 'runtime/src/memory_diagnostics.cpp', 'runtime/CMakeLists.txt', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
   pull_request:
-    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
+    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/src/memory.cpp', 'runtime/src/memory_diagnostics.cpp', 'runtime/CMakeLists.txt', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +31,14 @@ jobs:
           emcmake cmake -S . -B build-web -DWIICOMPILED_WEB=ON -DCMAKE_BUILD_TYPE=Release
           cmake --build build-web -j2
           ctest --test-dir build-web --output-on-failure
+      - name: Native checked-memory contracts with address and UB sanitizers
+        run: |
+          g++ -std=c++20 -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer \
+            -DMKW_CHECKED_GUEST_MEMORY=1 -Iruntime/include \
+            runtime/src/memory.cpp runtime/src/platform/web/guest_memory.cpp \
+            runtime/src/platform/web/memory_diagnostics.cpp runtime/tests/web_memory_tests.cpp \
+            -o "$RUNNER_TEMP/native-memory-tests"
+          "$RUNNER_TEMP/native-memory-tests"
       - name: Browser smoke test (software WebGPU, not a performance test)
         run: |
           npm install --prefix "$RUNNER_TEMP/web-tests" --no-save playwright@1.62.1

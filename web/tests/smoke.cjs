@@ -49,6 +49,25 @@ const assert = require('node:assert/strict');
     if (process.env.PROBE_SCREENSHOT) await page.screenshot({path: process.env.PROBE_SCREENSHOT});
     await page.close();
 
+    const memoryPage = await browser.newPage();
+    await memoryPage.goto(base);
+    const memoryResult = await memoryPage.evaluate(async () => {
+      const messages = [];
+      let exitStatus = 0;
+      const {default: createMemoryTest} = await import('./web_memory_browser.mjs');
+      await createMemoryTest({
+        print: text => messages.push(text),
+        printErr: text => messages.push(text),
+        onExit: code => { exitStatus = code; },
+      });
+      return {messages, exitStatus};
+    });
+    assert.equal(memoryResult.exitStatus, 0);
+    assert.ok(memoryResult.messages.some(text => text.includes('Guest memory contracts passed')),
+      memoryResult.messages.join('\n'));
+    console.log('PASS browser guest memory contracts (synthetic policy hooks)');
+    await memoryPage.close();
+
     for (const scenario of ['missing', 'null-adapter', 'device-failure', 'device-loss', 'missing-wasm']) {
       const p = await browser.newPage();
       if (scenario === 'missing-wasm') {
