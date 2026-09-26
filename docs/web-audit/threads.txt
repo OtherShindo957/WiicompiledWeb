@@ -1,0 +1,36 @@
+aurora-main/lib/aurora.cpp:240:  std::thread thread;
+aurora-main/lib/aurora.cpp:241:  std::thread::id threadId{};
+aurora-main/lib/aurora.cpp:351:  g_frameWorker.thread = std::thread(frame_worker_main);
+aurora-main/lib/aurora.cpp:1073:  std::thread thread;
+aurora-main/lib/aurora.cpp:1118:  g_presenter.thread = std::thread(presenter_main);
+runtime/src/hle/audio/ax_mix.cpp:1351:            m_mixThread = std::thread([this] { MixWorkerMain(); });
+runtime/src/hle/audio/ax_mix.cpp:1420:    std::thread m_mixThread;
+aurora-main/lib/gfx/pipeline_cache.cpp:77:static std::vector<std::thread> g_pipelineThreads;
+aurora-main/lib/gfx/pipeline_cache.cpp:90:static std::thread g_pipelineCacheWriterThread;
+aurora-main/lib/gfx/pipeline_cache.cpp:1046:  const size_t logicalProcessors = std::thread::hardware_concurrency();
+aurora-main/lib/gfx/pipeline_cache.cpp:1136:  g_pipelineCacheWriterThread = std::thread(pipeline_cache_writer);
+aurora-main/lib/gfx/pipeline_cache.cpp:1180:      g_pipelineThreads.emplace_back(pipeline_worker);
+runtime/include/runtime_log.h:28:// Stream form:  RT_LOG(RT_TAG_OS) << "OSCreateThread failed" << std::endl;
+runtime/src/hle/os/os_thread.cpp:250:// OSCreateThread (0x801a9e84)
+runtime/src/hle/os/os_thread.cpp:252:extern "C" void OSCreateThread_HLE_801a9e84(CpuContext* ctx)
+runtime/src/hle/os/os_thread.cpp:268:        RT_LOG(RT_TAG_OS) << "OSCreateThread: invalid priority " << priority << std::endl;
+runtime/src/hle/os/os_thread.cpp:307:        // like OSInitContext, then apply the OSCreateThread-specific overrides
+runtime/src/hle/os/os_thread.cpp:341:        // Match the original OSCreateThread slow-path initialization that runs
+runtime/src/hle/os/os_thread.cpp:397:        LogMemoryError(RT_TAG_OS, "OSCreateThread", e);
+runtime/src/hle/os/os_thread.cpp:401:PPC_NATIVE_OVERRIDE_VOID(801A9E84, OSCreateThread_HLE_801a9e84, (CpuContext* ctx), (ctx));
+runtime/include/fiber_manager.h:63:    // Create a fiber for a guest thread (called from OSCreateThread HLE).
+runtime/include/fiber_manager.h:64:    // OSCreateThread's stackSize/priority are not passed: the host fiber models
+runtime/include/fiber_manager.h:93:    // This is used for the default/main thread that exists before OSCreateThread
+runtime/src/music_attenuation.cpp:455:    std::thread(MonitorWindowsMediaSessions).detach();
+runtime/src/music_attenuation.cpp:458:    std::thread(MonitorLinuxMprisSessions).detach();
+runtime/src/main.cpp:172:    std::thread stdoutThread;
+runtime/src/main.cpp:173:    std::thread stderrThread;
+runtime/src/main.cpp:490:    state.stdoutThread = std::thread([&state]() {
+runtime/src/main.cpp:493:    state.stderrThread = std::thread([&state]() {
+runtime/src/hle/net/network_deferred.cpp:142:    std::optional<std::thread::id> schedulerThread;
+runtime/src/hle/net/network_deferred.cpp:169:    const std::thread::id current = std::this_thread::get_id();
+runtime/src/hle/net/network_deferred.cpp:272:    std::unique_ptr<std::thread> worker;
+runtime/src/hle/net/network_deferred.cpp:274:        worker = std::make_unique<std::thread>([work = std::move(work)]() mutable {
+aurora-main/lib/gx/frame_interpolation.cpp:93:    const unsigned hardware = std::thread::hardware_concurrency();
+aurora-main/lib/gx/frame_interpolation.cpp:99:      m_workers.emplace_back([this] { worker_loop(); });
+aurora-main/lib/gx/frame_interpolation.cpp:134:  std::vector<std::thread> m_workers;

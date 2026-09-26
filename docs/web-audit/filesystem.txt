@@ -1,0 +1,371 @@
+aurora-main/lib/system_info.cpp:268:  std::ifstream cpuInfo("/proc/cpuinfo");
+aurora-main/lib/system_info.cpp:304:  if (!std::filesystem::exists(path)) {
+aurora-main/lib/system_info.cpp:308:  std::ifstream releaseInfo(path);
+aurora-main/lib/aurora.cpp:421:void append_u16(std::ofstream& out, uint16_t value) {
+aurora-main/lib/aurora.cpp:426:void append_u32(std::ofstream& out, uint32_t value) {
+aurora-main/lib/aurora.cpp:434:  std::ofstream out(path, std::ios::binary | std::ios::trunc);
+aurora-main/lib/fs_helper.hpp:12:inline std::string fs_path_to_string(const std::filesystem::path& path) {
+aurora-main/lib/fs_helper.hpp:17:inline std::filesystem::path fs_path_from_string(std::string_view utf8) {
+aurora-main/lib/fs_helper.hpp:18:  return std::filesystem::path(std::u8string(utf8.begin(), utf8.end()));
+aurora-main/lib/imgui.cpp:41:  std::filesystem::remove(fs_path_from_string(basePath) / "imgui.ini", ec);
+runtime/src/controller_mapping_wizard.cpp:79:std::filesystem::path MappingDbPath() {
+runtime/src/controller_mapping_wizard.cpp:155:    const std::filesystem::path path = MappingDbPath();
+runtime/src/controller_mapping_wizard.cpp:158:        std::ifstream in(path);
+runtime/src/controller_mapping_wizard.cpp:168:    std::filesystem::create_directories(path.parent_path(), ec);
+runtime/src/controller_mapping_wizard.cpp:169:    std::ofstream out(path, std::ios::trunc);
+runtime/src/controller_mapping_wizard.cpp:313:    std::ifstream in(MappingDbPath());
+translator/src/Translator.Cli/Program.cs:283:            var cachedBytes = File.ReadAllBytes(cachedPath);
+translator/src/Translator.Cli/Program.cs:299:    return File.ReadAllBytes(Path.GetFullPath(Path.Combine(root, spec)));
+translator/src/Translator.Cli/Program.cs:1829:    var relocatedModuleImage = File.ReadAllBytes(relocatedModuleImagePath);
+translator/src/Translator.Cli/Program.cs:2682:    var bytes = File.ReadAllBytes(path);
+aurora-main/lib/gfx/png_io.cpp:16:  std::ifstream file;
+aurora-main/lib/gfx/png_io.cpp:33:load_png_file(const std::filesystem::path& path) noexcept {
+aurora-main/lib/gfx/png_io.cpp:36:  structs.file = std::move(std::ifstream(path, std::ifstream::in | std::ifstream::binary));
+runtime/include/hle/dvd_contract.h:23:    std::filesystem::path hostPath;
+runtime/include/hle/dvd_contract.h:30:    std::filesystem::path hostPath;
+runtime/include/hle/dvd_contract.h:290:inline bool ReadExact(const std::filesystem::path& hostPath,
+runtime/include/hle/dvd_contract.h:297:    std::ifstream file(hostPath, std::ios::binary);
+runtime/include/nand_settings.h:25:inline std::filesystem::path FilePath(const std::filesystem::path& root) {
+runtime/include/nand_settings.h:30:inline std::optional<Settings> Read(const std::filesystem::path& nandRoot) {
+runtime/include/nand_settings.h:31:    std::ifstream input(FilePath(nandRoot), std::ios::binary);
+runtime/include/nand_settings.h:134:inline std::optional<std::filesystem::path> CreateScratchDirectory(
+runtime/include/nand_settings.h:135:    const std::filesystem::path& parent, const std::string& token, std::error_code& ec) {
+runtime/include/nand_settings.h:139:        if (std::filesystem::create_directory(candidate, ec)) return candidate;
+runtime/include/nand_settings.h:148:inline bool Ensure(const std::filesystem::path& root, std::string& error,
+runtime/include/nand_settings.h:152:    const auto status = std::filesystem::symlink_status(path, ec);
+runtime/include/nand_settings.h:157:    if (std::filesystem::exists(status)) {
+runtime/include/nand_settings.h:172:    std::filesystem::create_directories(path.parent_path(), ec);
+runtime/include/nand_settings.h:194:        std::ofstream output(temporary, std::ios::binary);
+runtime/include/nand_settings.h:207:    std::filesystem::remove(temporary, ec);
+runtime/include/nand_settings.h:208:    std::filesystem::remove(*scratch, ec);
+aurora-main/lib/gfx/dds_io.cpp:56:bool ensure_directory(const std::filesystem::path& dir) noexcept {
+aurora-main/lib/gfx/dds_io.cpp:58:  std::filesystem::create_directories(dir, ec);
+aurora-main/lib/gfx/dds_io.cpp:62:bool write_binary_file(const std::filesystem::path& path, ArrayRef<uint8_t> data) noexcept {
+aurora-main/lib/gfx/dds_io.cpp:67:  std::ofstream out(path, std::ios::binary | std::ios::trunc);
+aurora-main/lib/gfx/dds_io.cpp:76:std::optional<ByteBuffer> read_binary_file(const std::filesystem::path& path) noexcept {
+aurora-main/lib/gfx/dds_io.cpp:77:  std::ifstream file(path, std::ios::binary | std::ios::ate);
+aurora-main/lib/gfx/dds_io.cpp:217:std::optional<ConvertedTexture> load_dds_file(const std::filesystem::path& path) noexcept {
+aurora-main/lib/gfx/dds_io.cpp:252:bool write_rgba8_dds(const std::filesystem::path& path, uint32_t width, uint32_t height,
+runtime/include/platform/host_platform.h:14:std::optional<std::filesystem::path> ExecutableDirectory() noexcept;
+runtime/include/platform/host_platform.h:18:std::filesystem::path ApplicationDataDirectory(std::string_view applicationName);
+runtime/include/platform/host_platform.h:22:std::filesystem::path LogDirectory(std::string_view applicationName);
+runtime/src/hle/audio/ax_mix.cpp:34:std::filesystem::path FindDspCoefficientRom() {
+runtime/src/hle/audio/ax_mix.cpp:37:        if (std::filesystem::is_regular_file(adjacent)) {
+runtime/src/hle/audio/ax_mix.cpp:42:    for (auto base = std::filesystem::current_path(); !base.empty();) {
+runtime/src/hle/audio/ax_mix.cpp:44:        if (std::filesystem::is_regular_file(sourceTreeAsset)) {
+runtime/src/hle/audio/ax_mix.cpp:696:        std::ifstream stream(path, std::ios::binary | std::ios::ate);
+runtime/include/input_expr.h:49:bool ReadDolphinConfig(const std::filesystem::path& path, int padIndex,
+runtime/include/wii_es_crypto.h:72:inline std::optional<Identity> LoadIdentityFromKeysBin(const std::filesystem::path& path) {
+runtime/include/wii_es_crypto.h:73:    std::ifstream file(path, std::ios::binary | std::ios::ate);
+runtime/include/wii_es_crypto.h:107:inline std::optional<Identity> LoadIdentityFromNand(const std::filesystem::path& nandBase) {
+aurora-main/lib/gfx/png_io.hpp:9:std::optional<ConvertedTexture> load_png_file(const std::filesystem::path& path) noexcept;
+aurora-main/lib/webgpu/gpu_cache.cpp:168:    std::filesystem::remove(path, ec);
+aurora-main/lib/webgpu/gpu_cache.cpp:171:    std::filesystem::remove(wal, ec);
+aurora-main/lib/webgpu/gpu_cache.cpp:174:    std::filesystem::remove(shm, ec);
+runtime/include/nand_path.h:19:inline std::optional<std::filesystem::path> ExistingDirectory(const std::filesystem::path& path) {
+runtime/include/nand_path.h:21:    if (!path.empty() && std::filesystem::is_directory(path, ec) && !ec) {
+runtime/include/nand_path.h:27:[[noreturn]] inline void FailNandRoot(const char* message, const std::filesystem::path& path = {}) {
+runtime/include/nand_path.h:52:inline std::filesystem::path ResolveConfiguredPath(const std::string& value) {
+runtime/include/nand_path.h:56:inline std::filesystem::path ManagedNandRootPath() {
+runtime/include/nand_path.h:60:inline std::optional<std::filesystem::path> BootstrapPayloadPath() {
+runtime/include/nand_path.h:69:    for (auto base = std::filesystem::current_path(); !base.empty();) {
+runtime/include/nand_path.h:83:inline bool CopyBootstrapFile(const std::filesystem::path& sourceRoot,
+runtime/include/nand_path.h:84:                              const std::filesystem::path& destinationRoot,
+runtime/include/nand_path.h:85:                              const std::filesystem::path& relativePath,
+runtime/include/nand_path.h:89:    if (std::filesystem::exists(destination, ec)) {
+runtime/include/nand_path.h:93:    std::filesystem::create_directories(destination.parent_path(), ec);
+runtime/include/nand_path.h:97:    std::filesystem::copy_file(source, destination, std::filesystem::copy_options::none, ec);
+runtime/include/nand_path.h:117:inline bool SeedMissingBootstrapFiles(const std::filesystem::path& root) {
+runtime/include/nand_path.h:124:        const std::filesystem::path relativePath{std::string(file)};
+runtime/include/nand_path.h:136:inline std::filesystem::path CreateManagedNandRoot() {
+runtime/include/nand_path.h:137:    const std::filesystem::path root = ManagedNandRootPath();
+runtime/include/nand_path.h:139:    std::filesystem::create_directories(root, ec);
+runtime/include/nand_path.h:140:    if (ec || !std::filesystem::is_directory(root, ec)) {
+runtime/include/nand_path.h:150:    if (!std::filesystem::exists(marker, ec)) {
+runtime/include/nand_path.h:151:        std::ofstream markerFile(marker, std::ios::trunc);
+runtime/include/nand_path.h:167:inline std::filesystem::path ResolveNandRootPath() {
+runtime/include/nand_path.h:183:inline std::filesystem::path DiscoverNandRootPath() {
+runtime/include/recomp_mod_loader.h:74:const std::vector<std::filesystem::path>& DvdOverlayRoots();
+Launcher/WiiCompiled.Setup.Windows/PayloadArchive.cs:13:    private readonly FileStream _executable;
+Launcher/WiiCompiled.Setup.Windows/PayloadArchive.cs:17:    private PayloadArchive(FileStream executable, SliceStream payloadStream, ZipArchive zip)
+Launcher/WiiCompiled.Setup.Windows/PayloadArchive.cs:27:        var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+Launcher/WiiCompiled.Setup.Windows/PayloadArchive.cs:78:        using (var output = new FileStream(destination, FileMode.Create, FileAccess.Write, FileShare.None))
+aurora-main/lib/gfx/texture_replacement.cpp:67:  std::filesystem::path path;
+aurora-main/lib/gfx/texture_replacement.cpp:77:std::filesystem::path s_replacementRoot;
+aurora-main/lib/gfx/texture_replacement.cpp:78:std::filesystem::path s_dumpRoot;
+aurora-main/lib/gfx/texture_replacement.cpp:96:bool is_relative_to(const std::filesystem::path& path, const std::filesystem::path& root) noexcept {
+aurora-main/lib/gfx/texture_replacement.cpp:244:bool ensure_directory(const std::filesystem::path& dir) noexcept {
+aurora-main/lib/gfx/texture_replacement.cpp:246:  std::filesystem::create_directories(dir, ec);
+aurora-main/lib/gfx/texture_replacement.cpp:370:static std::optional<ConvertedTexture> load_texture_file(const std::filesystem::path& path) {
+aurora-main/lib/gfx/texture_replacement.cpp:418:    if (!std::filesystem::is_regular_file(mipPath, ec)) {
+aurora-main/lib/gfx/texture_replacement.cpp:523:  for (std::filesystem::recursive_directory_iterator it(
+aurora-main/lib/gfx/texture_replacement.cpp:525:           std::filesystem::directory_options::skip_permission_denied |
+aurora-main/lib/gfx/texture_replacement.cpp:526:               std::filesystem::directory_options::follow_directory_symlink,
+aurora-main/lib/gfx/texture_replacement.cpp:528:       it != std::filesystem::recursive_directory_iterator(); it.increment(ec)) {
+Launcher/WiiCompiled.Setup.Windows/InstallOperationLock.cs:14:    private readonly FileStream _stream;
+Launcher/WiiCompiled.Setup.Windows/InstallOperationLock.cs:16:    private InstallOperationLock(FileStream stream) => _stream = stream;
+Launcher/WiiCompiled.Setup.Windows/InstallOperationLock.cs:27:        FileStream stream;
+Launcher/WiiCompiled.Setup.Windows/InstallOperationLock.cs:30:            stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None,
+runtime/include/system_bridge.h:90:    static void WriteGuestMemorySnapshot(std::ostream& os, const std::filesystem::path& mem1Path);
+aurora-main/lib/gfx/dds_io.hpp:11:std::optional<ConvertedTexture> load_dds_file(const std::filesystem::path& path) noexcept;
+aurora-main/lib/gfx/dds_io.hpp:13:bool write_rgba8_dds(const std::filesystem::path& path, uint32_t width, uint32_t height, ArrayRef<u8> pixels) noexcept;
+aurora-main/lib/gfx/dds_io.hpp:15:std::optional<ByteBuffer> read_binary_file(const std::filesystem::path& path) noexcept;
+aurora-main/lib/card/CardGciFolder.hpp:22:  std::filesystem::path m_folderPath;
+aurora-main/lib/card/CardGciFolder.hpp:70:  bool open(const std::filesystem::path& filepath) override;
+aurora-main/lib/card/CardGciFolder.hpp:72:  const std::filesystem::path& cardFilename() const override;
+aurora-main/lib/card/CardGciFolder.hpp:74:  ProbeResults probeCardFile(const std::filesystem::path& filename) override;
+Launcher/WiiCompiled.Setup.Windows/SelfTests.cs:1406:            var alteredExecutable = File.ReadAllBytes(installation.RetroExecutable);
+aurora-main/lib/card/CardRawFile.cpp:732:ProbeResults CardRawFile::probeCardFile(const std::filesystem::path& filename) {
+aurora-main/lib/card/CardRawFile.cpp:733:  if (!std::filesystem::exists(filename))
+aurora-main/lib/card/CardRawFile.cpp:735:  return {ECardResult::READY, static_cast<uint32_t>(std::filesystem::file_size(filename) / BlockSize) / MbitToBlocks,
+aurora-main/lib/card/CardRawFile.cpp:766:bool CardRawFile::open(const std::filesystem::path& filepath) {
+aurora-main/lib/card/FileIO.hpp:19:  explicit FileIO(const std::filesystem::path& filename, bool truncate = false);
+runtime/include/runtime_config.h:104:inline std::string PathToUtf8(const std::filesystem::path& path) {
+runtime/include/runtime_config.h:109:inline std::filesystem::path PathFromUtf8(std::string_view text) {
+runtime/include/runtime_config.h:110:    return std::filesystem::path(std::u8string(text.begin(), text.end()));
+runtime/include/runtime_config.h:194:inline std::optional<std::filesystem::path> ExecutableDirectory() {
+runtime/include/runtime_config.h:204:            return std::filesystem::path(buffer).parent_path();
+runtime/include/runtime_config.h:223:            return std::filesystem::path(buffer).parent_path();
+runtime/include/runtime_config.h:233:inline const std::optional<std::filesystem::path>& PortableRootDirectory() {
+runtime/include/runtime_config.h:234:    static const std::optional<std::filesystem::path> root = []() -> std::optional<std::filesystem::path> {
+runtime/include/runtime_config.h:239:        std::filesystem::path current = *executableDirectory;
+runtime/include/runtime_config.h:242:            if (std::filesystem::is_regular_file(current / kPortableMarkerFileName, ec)) {
+runtime/include/runtime_config.h:256:inline std::filesystem::path ApplicationDataDirectory() {
+runtime/include/runtime_config.h:263:        const std::filesystem::path directory = std::filesystem::path(rawPath) / kApplicationDirectoryName;
+runtime/include/runtime_config.h:273:        return std::filesystem::path(xdgDataHome) / kApplicationDirectoryName;
+runtime/include/runtime_config.h:276:        return std::filesystem::path(home) / ".local" / "share" / kApplicationDirectoryName;
+runtime/include/runtime_config.h:279:    return std::filesystem::current_path() / kApplicationDirectoryName;
+runtime/include/runtime_config.h:282:inline std::filesystem::path ResolveConfigPath() {
+runtime/include/runtime_config.h:287:    const std::filesystem::path path = ResolveConfigPath();
+runtime/include/runtime_config.h:289:    std::filesystem::create_directories(path.parent_path(), ec);
+runtime/include/runtime_config.h:290:    if (ec || std::filesystem::exists(path, ec)) {
+runtime/include/runtime_config.h:294:    std::ofstream output(path);
+runtime/include/runtime_config.h:524:    std::ifstream file(ResolveConfigPath(), std::ios::binary);
+runtime/include/runtime_config.h:550:    std::ifstream input(path);
+runtime/include/runtime_config.h:612:        std::filesystem::create_directories(path.parent_path(), ec);
+runtime/include/runtime_config.h:614:    std::ofstream output(path, std::ios::trunc);
+runtime/include/runtime_config.h:965:inline std::filesystem::path ResolveRelativeTo(const std::filesystem::path& base,
+runtime/include/runtime_config.h:967:    std::filesystem::path path = PathFromUtf8(value);
+runtime/include/runtime_config.h:974:inline std::filesystem::path ResolveRelativeToConfig(const std::string& value) {
+runtime/include/runtime_config.h:979:inline std::filesystem::path ResolvedDvdRoot() {
+runtime/include/runtime_config.h:981:    return configured.empty() ? std::filesystem::path{} : ResolveRelativeToConfig(configured);
+runtime/include/runtime_config.h:1006:        if (!std::filesystem::exists(configPath)) {
+runtime/include/nand_save_probe.h:27:inline Contents InspectFile(const std::filesystem::path& path) {
+runtime/include/nand_save_probe.h:29:    const auto status = std::filesystem::symlink_status(path, ec);
+runtime/include/nand_save_probe.h:31:    if (!std::filesystem::exists(status)) return Contents::Missing;
+runtime/include/nand_save_probe.h:32:    if (!std::filesystem::is_regular_file(path, ec) || ec) return Contents::Error;
+runtime/include/nand_save_probe.h:33:    std::ifstream input(path, std::ios::binary);
+runtime/include/nand_save_probe.h:39:inline ReadAction CheckRead(const std::filesystem::path& path, int mode) {
+runtime/src/platform/host_platform.cpp:22:std::optional<std::filesystem::path> ExecutableDirectory() noexcept {
+runtime/src/platform/host_platform.cpp:32:            return std::filesystem::path(buffer).parent_path();
+runtime/src/platform/host_platform.cpp:47:    const auto resolved = std::filesystem::weakly_canonical(path, ec);
+runtime/src/platform/host_platform.cpp:48:    return (ec ? std::filesystem::path(path) : resolved).parent_path();
+runtime/src/platform/host_platform.cpp:54:std::filesystem::path ApplicationDataDirectory(std::string_view applicationName) {
+runtime/src/platform/host_platform.cpp:58:        const std::filesystem::path directory = std::filesystem::path(rawPath) / applicationName;
+runtime/src/platform/host_platform.cpp:64:        return std::filesystem::path(home) / "Library" / "Application Support" / applicationName;
+runtime/src/platform/host_platform.cpp:67:        return std::filesystem::path(user->pw_dir) / "Library" / "Application Support" / applicationName;
+runtime/src/platform/host_platform.cpp:70:    return std::filesystem::current_path() / applicationName;
+runtime/src/platform/host_platform.cpp:73:std::filesystem::path LogDirectory(std::string_view applicationName) {
+translator/src/Translator.Core/IO/FileOutput.cs:26:        using (var stream = new FileStream(
+translator/src/Translator.Core/IO/FileOutput.cs:44:        using var stream = new FileStream(
+translator/src/Translator.Core/IO/FileOutput.cs:76:        using var leftStream = new FileStream(
+translator/src/Translator.Core/IO/FileOutput.cs:78:        using var rightStream = new FileStream(
+aurora-main/lib/card/CardGciFolder.cpp:63:        gciFile.fileSize = std::filesystem::file_size(m_folderPath / gciFile.filename);
+aurora-main/lib/card/CardGciFolder.cpp:80:      gciFile.fileSize = std::filesystem::file_size(m_folderPath / gciFile.filename);
+aurora-main/lib/card/CardGciFolder.cpp:327:  if (!std::filesystem::create_directories(m_folderPath)) {
+aurora-main/lib/card/CardGciFolder.cpp:344:bool CardGciFolder::open(const std::filesystem::path& filepath) {
+aurora-main/lib/card/CardGciFolder.cpp:348:  if (!std::filesystem::exists(filepath, ec) || !std::filesystem::is_directory(filepath, ec)) {
+aurora-main/lib/card/CardGciFolder.cpp:355:  std::filesystem::directory_iterator it(
+aurora-main/lib/card/CardGciFolder.cpp:356:      filepath, std::filesystem::directory_options::skip_permission_denied, ec);
+aurora-main/lib/card/CardGciFolder.cpp:362:  const std::filesystem::directory_iterator end;
+aurora-main/lib/card/CardGciFolder.cpp:370:    if (!std::filesystem::is_regular_file(status)) {
+aurora-main/lib/card/CardGciFolder.cpp:419:static std::filesystem::path g_cardFileNameEmpty = "";
+aurora-main/lib/card/CardGciFolder.cpp:421:const std::filesystem::path& CardGciFolder::cardFilename() const { return g_cardFileNameEmpty; }
+aurora-main/lib/card/CardGciFolder.cpp:425:ProbeResults CardGciFolder::probeCardFile(const std::filesystem::path& filename) {
+aurora-main/lib/card/CardGciFolder.cpp:426:  if (!std::filesystem::exists(filename) || !std::filesystem::is_directory(filename))
+aurora-main/lib/card/DolphinCardPath.cpp:82:  if (!std::filesystem::exists(path)) {
+aurora-main/lib/card/DolphinCardPath.cpp:112:  if (!std::filesystem::exists(path)) return {};
+runtime/src/discord_presence.cpp:305:            if (!::ReadFile(handle_, data, requested, &read, nullptr) || read == 0) {
+runtime/src/system_bridge.cpp:415:void SystemBridge::WriteGuestMemorySnapshot(std::ostream& os, const std::filesystem::path& mem1Path) {
+runtime/src/system_bridge.cpp:419:        std::ofstream dump(mem1Path, std::ios::binary | std::ios::trunc);
+runtime/src/system_bridge.cpp:430:        std::filesystem::path mem2Path = mem1Path;
+runtime/src/system_bridge.cpp:432:        std::ofstream dump(mem2Path, std::ios::binary | std::ios::trunc);
+runtime/src/input_bindings.cpp:257:        const std::filesystem::path roaming =
+runtime/src/input_bindings.cpp:258:            std::filesystem::path(appdata) / "Dolphin Emulator" / "Config" / "GCPadNew.ini";
+runtime/src/input_bindings.cpp:259:        if (std::filesystem::exists(roaming, ec)) {
+runtime/src/input_bindings.cpp:265:                                                             : std::filesystem::path("GCPadNew.ini"));
+runtime/src/input_expr.cpp:585:bool ReadDolphinConfig(const std::filesystem::path& path, int padIndex,
+runtime/src/input_expr.cpp:588:    std::ifstream file(path);
+runtime/src/wii_remote_input.cpp:247:    static std::ofstream trace;
+runtime/src/wii_remote_input.cpp:251:        const std::filesystem::path path = RuntimeConfigFile::ApplicationDataDirectory() / "wii_accel_trace.csv";
+runtime/src/hle/storage/riivolution.cpp:27:namespace fs = std::filesystem;
+runtime/src/hle/storage/riivolution.cpp:39:std::optional<std::string> RiivoReadFile(const fs::path& path) {
+runtime/src/hle/storage/riivolution.cpp:40:    std::ifstream stream(path, std::ios::binary);
+runtime/src/hle/storage/riivolution.cpp:268:    if (const auto configText = RiivoReadFile(configXml)) {
+runtime/src/hle/storage/riivolution.cpp:274:        const auto text = RiivoReadFile(xmlFile);
+runtime/src/main.cpp:162:    std::filesystem::path path;
+runtime/src/main.cpp:163:    std::ofstream file;
+runtime/src/main.cpp:176:std::filesystem::path GetDefaultRuntimeLogDirectory() {
+runtime/src/main.cpp:183:void PruneOldRunLogs(const std::filesystem::path& logRoot) {
+runtime/src/main.cpp:187:    const auto now = std::filesystem::file_time_type::clock::now();
+runtime/src/main.cpp:188:    for (const auto& entry : std::filesystem::directory_iterator(logRoot, ec)) {
+runtime/src/main.cpp:190:        const auto writeTime = std::filesystem::last_write_time(entry.path(), entryEc);
+runtime/src/main.cpp:195:            std::filesystem::remove_all(entry.path(), entryEc);
+runtime/src/main.cpp:204:const std::filesystem::path& GetRunLogDirectory() {
+runtime/src/main.cpp:205:    static const std::filesystem::path runDirectory = [] {
+runtime/src/main.cpp:206:        const std::filesystem::path logRoot = GetDefaultRuntimeLogDirectory();
+runtime/src/main.cpp:209:        std::filesystem::create_directories(logRoot, ec);
+runtime/src/main.cpp:223:        const std::filesystem::path directory = logRoot / name.str();
+runtime/src/main.cpp:224:        std::filesystem::create_directories(directory, ec);
+runtime/src/main.cpp:384:    std::ifstream file(*directory / "build-fingerprint.json", std::ios::binary);
+runtime/src/main.cpp:409:    const std::filesystem::path path = GetRunLogDirectory() / "console.log";
+runtime/src/main.cpp:602:                    modulePath = RuntimeConfigFile::PathToUtf8(std::filesystem::path(modulePathBuffer));
+runtime/src/main.cpp:670:    const std::filesystem::path runDirectory = GetRunLogDirectory();
+runtime/src/main.cpp:674:    std::ofstream out(runDirectory / fileName, std::ios::out | std::ios::trunc);
+runtime/src/main.cpp:1344:        std::filesystem::create_directories(rendererCacheDirectory, rendererPathError);
+runtime/src/hle/storage/nand_isfs.cpp:393:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_isfs.cpp:484:    size_t bytesRead = std::fread(buffer, 1, length, handle->file);
+runtime/src/hle/storage/nand_isfs.cpp:583:                const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_isfs.cpp:596:                const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_isfs.cpp:610:                const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_isfs.cpp:639:                const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_isfs.cpp:663:                const std::filesystem::path srcHost = TranslateNandPath(srcPath);
+runtime/src/hle/storage/nand_isfs.cpp:664:                const std::filesystem::path dstHost = TranslateNandPath(dstPath);
+runtime/src/hle/storage/nand_isfs.cpp:969:    const std::filesystem::path hostPath = TranslateNandPath(wiiPath.c_str());
+runtime/src/hle/storage/nand_isfs.cpp:979:    for (const auto& entry : std::filesystem::directory_iterator(hostPath, ec)) {
+runtime/src/recomp_mod_loader.cpp:36:std::vector<std::filesystem::path>& OverlayRoots() {
+runtime/src/recomp_mod_loader.cpp:37:    static std::vector<std::filesystem::path> roots;
+runtime/src/recomp_mod_loader.cpp:280:    const std::filesystem::path base =
+runtime/src/recomp_mod_loader.cpp:281:        RuntimeConfigFile::ExecutableDirectory().value_or(std::filesystem::current_path());
+runtime/src/recomp_mod_loader.cpp:282:    std::filesystem::path resolved = RuntimeConfigFile::ResolveRelativeTo(base, root);
+runtime/src/recomp_mod_loader.cpp:292:const std::vector<std::filesystem::path>& DvdOverlayRoots() {
+runtime/src/hle/storage/nand_api.cpp:55:static bool RenameNoReplace(const std::filesystem::path& from,
+runtime/src/hle/storage/nand_api.cpp:56:                            const std::filesystem::path& to,
+runtime/src/hle/storage/nand_api.cpp:128:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_api.cpp:143:            const std::filesystem::path tempPath = SafeTempPathFor(hostPath);
+runtime/src/hle/storage/nand_api.cpp:146:                std::filesystem::copy_file(hostPath, tempPath,
+runtime/src/hle/storage/nand_api.cpp:147:                                           std::filesystem::copy_options::overwrite_existing, ec);
+runtime/src/hle/storage/nand_api.cpp:256:    size_t bytesRead = std::fread(buffer, 1, length, handle->file);
+runtime/src/hle/storage/nand_api.cpp:322:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_api.cpp:347:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_api.cpp:367:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_api.cpp:397:    const std::filesystem::path srcHost = TranslateNandPath(srcPath);
+runtime/src/hle/storage/nand_api.cpp:398:    const std::filesystem::path dstDirectoryHost = TranslateNandPath(dstPath);
+runtime/src/hle/storage/nand_api.cpp:399:    const std::filesystem::path srcName = srcHost.filename();
+runtime/src/hle/storage/nand_api.cpp:407:    const std::filesystem::path dstHost = dstDirectoryHost / srcName;
+runtime/src/hle/storage/nand_api.cpp:420:    std::filesystem::rename(srcHost, dstHost, ec);
+runtime/src/hle/storage/nand_api.cpp:436:        std::filesystem::path scratchHost;
+runtime/src/hle/storage/nand_api.cpp:444:            if (std::filesystem::create_directory(candidate, scratchEc)) {
+runtime/src/hle/storage/nand_api.cpp:460:        const std::filesystem::path tempHost = scratchHost / srcName;
+runtime/src/hle/storage/nand_api.cpp:463:            std::filesystem::remove_all(scratchHost, cleanupEc);
+runtime/src/hle/storage/nand_api.cpp:472:            std::filesystem::copy(srcHost, tempHost,
+runtime/src/hle/storage/nand_api.cpp:473:                                  std::filesystem::copy_options::recursive, copyEc);
+runtime/src/hle/storage/nand_api.cpp:475:            std::filesystem::copy_file(srcHost, tempHost, copyEc);
+runtime/src/hle/storage/nand_api.cpp:491:            std::filesystem::create_hard_link(tempHost, dstHost, publishEc);
+runtime/src/hle/storage/nand_api.cpp:502:        std::filesystem::remove_all(srcHost, removeEc);
+runtime/src/hle/storage/nand_api.cpp:522:            std::filesystem::remove_all(dstHost, rollbackEc);
+runtime/src/hle/storage/nand_api.cpp:542:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_api.cpp:563:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_async.cpp:237:std::filesystem::path SafeTempPathFor(const std::filesystem::path& hostPath) {
+runtime/src/hle/storage/nand_async.cpp:238:    std::filesystem::path tempPath = hostPath;
+runtime/src/hle/storage/nand_async.cpp:269:static bool AtomicReplaceHostFile(const char* who, const std::filesystem::path& tempPath,
+runtime/src/hle/storage/nand_async.cpp:270:                                  const std::filesystem::path& targetPath) {
+runtime/src/hle/storage/nand_async.cpp:299:bool DiscardStaleSafeTemp(const std::filesystem::path& tempPath) {
+runtime/src/hle/storage/nand_async.cpp:316:bool IsHostPathOpen(const std::filesystem::path& hostPath) {
+runtime/src/hle/storage/nand_async.cpp:331:    std::filesystem::path tempPath;
+runtime/src/hle/storage/nand_async.cpp:332:    std::filesystem::path commitPath;
+runtime/src/hle/storage/nand_async.cpp:401:    const std::filesystem::path hostPath = TranslateNandPath(path);
+runtime/src/hle/storage/nand_async.cpp:444:    const std::filesystem::path tempPath = SafeTempPathFor(hostPath);
+runtime/src/hle/storage/nand_async.cpp:452:    std::filesystem::copy_file(hostPath, tempPath,
+runtime/src/hle/storage/nand_async.cpp:453:                               std::filesystem::copy_options::overwrite_existing, ec);
+runtime/src/hle/storage/riivolution.h:25:    std::filesystem::path hostPath;
+runtime/src/hle/storage/riivolution.h:40:    std::filesystem::path root;
+runtime/src/hle/storage/riivolution.h:47:    std::filesystem::path hostDirectory;
+runtime/src/hle/storage/dvd.cpp:34:namespace fs = std::filesystem;
+runtime/src/hle/storage/dvd.cpp:242:    std::ifstream fstFile(fstPath, std::ios::binary);
+runtime/src/hle/storage/dvd.cpp:716:        std::ofstream dump(dumpPath, std::ios::binary);
+runtime/src/hle/storage/nand_internal.h:64:    const std::filesystem::path& hostPath, int mode, bool ios = false);
+runtime/src/hle/storage/nand_internal.h:72:    std::filesystem::path path;
+runtime/src/hle/storage/nand_internal.h:78:    std::filesystem::path safeCommitPath;
+runtime/src/hle/storage/nand_internal.h:84:int32_t AllocateFd(const std::filesystem::path& path, FILE* file, int32_t mode);
+runtime/src/hle/storage/nand_internal.h:94:const std::filesystem::path& GetNandBasePath();
+runtime/src/hle/storage/nand_internal.h:95:std::filesystem::path TranslateNandPath(const char* wiiPath);
+runtime/src/hle/storage/nand_internal.h:97:bool CreateDirectoryPath(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:98:bool PathExists(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:99:bool IsDirectory(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:103:bool CreateParentDirectories(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:107:std::string HostPathText(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:110:FILE* NandFopen(const std::filesystem::path& path, const char* mode);
+runtime/src/hle/storage/nand_internal.h:111:bool NandRemove(const std::filesystem::path& path);
+runtime/src/hle/storage/nand_internal.h:112:bool NandRename(const std::filesystem::path& from, const std::filesystem::path& to);
+runtime/src/hle/storage/nand_internal.h:114:bool SeedFaceLibResource(const std::filesystem::path& hostPath);
+runtime/src/hle/storage/nand_internal.h:192:std::filesystem::path SafeTempPathFor(const std::filesystem::path& hostPath);
+runtime/src/hle/storage/nand_internal.h:193:bool DiscardStaleSafeTemp(const std::filesystem::path& tempPath);
+runtime/src/hle/storage/nand_internal.h:194:bool IsHostPathOpen(const std::filesystem::path& hostPath);
+runtime/src/hle/net/network_ssl.cpp:612:static std::optional<std::filesystem::path> FindCaCertificateBundle() {
+runtime/src/hle/net/network_ssl.cpp:615:        if (std::filesystem::is_regular_file(adjacent)) {
+runtime/src/hle/net/network_ssl.cpp:622:    if (std::filesystem::is_regular_file(androidAsset)) {
+runtime/src/hle/net/network_ssl.cpp:627:    for (auto base = std::filesystem::current_path(); !base.empty();) {
+runtime/src/hle/net/network_ssl.cpp:629:        if (std::filesystem::is_regular_file(sourceTreeAsset)) {
+runtime/src/hle/storage/nand_fs.cpp:15:static std::filesystem::path g_dolphinWiiBase;
+runtime/src/hle/storage/nand_fs.cpp:50:int32_t AllocateFd(const std::filesystem::path& path, FILE* file, int32_t mode) {
+runtime/src/hle/storage/nand_fs.cpp:91:const std::filesystem::path& GetNandBasePath() {
+runtime/src/hle/storage/nand_fs.cpp:99:std::string HostPathText(const std::filesystem::path& path) {
+runtime/src/hle/storage/nand_fs.cpp:103:FILE* NandFopen(const std::filesystem::path& path, const char* mode) {
+runtime/src/hle/storage/nand_fs.cpp:106:    return _wfopen(path.c_str(), wideMode.c_str());
+runtime/src/hle/storage/nand_fs.cpp:108:    return std::fopen(path.c_str(), mode);
+runtime/src/hle/storage/nand_fs.cpp:112:bool NandRemove(const std::filesystem::path& path) {
+runtime/src/hle/storage/nand_fs.cpp:114:    return std::filesystem::remove(path, ec) && !ec;
+runtime/src/hle/storage/nand_fs.cpp:117:bool NandRename(const std::filesystem::path& from, const std::filesystem::path& to) {
+runtime/src/hle/storage/nand_fs.cpp:119:    std::filesystem::rename(from, to, ec);
+runtime/src/hle/storage/nand_fs.cpp:125:static std::filesystem::path BuildHostNandPath(const std::string& wiiPathStr) {
+runtime/src/hle/storage/nand_fs.cpp:126:    std::filesystem::path hostPath = GetNandBasePath();
+runtime/src/hle/storage/nand_fs.cpp:193:    std::filesystem::path hostDirectory;
+runtime/src/hle/storage/nand_fs.cpp:219:static void CloneRiivolutionSaveIfNeeded(const std::filesystem::path& sourceHostPath,
+runtime/src/hle/storage/nand_fs.cpp:220:                                         const std::filesystem::path& redirectedHostPath,
+runtime/src/hle/storage/nand_fs.cpp:229:    std::filesystem::copy_file(sourceHostPath, redirectedHostPath,
+runtime/src/hle/storage/nand_fs.cpp:230:                               std::filesystem::copy_options::skip_existing, ec);
+runtime/src/hle/storage/nand_fs.cpp:239:                                           std::filesystem::path& outHostPath) {
+runtime/src/hle/storage/nand_fs.cpp:258:    std::filesystem::path redirected = redirect.hostDirectory;
+runtime/src/hle/storage/nand_fs.cpp:260:        redirected /= std::filesystem::path(relative);
+runtime/src/hle/storage/nand_fs.cpp:268:std::filesystem::path TranslateNandPath(const char* wiiPath) {
+runtime/src/hle/storage/nand_fs.cpp:274:    std::filesystem::path redirectedHostPath;
+runtime/src/hle/storage/nand_fs.cpp:292:static bool ExtractFromU8(const std::filesystem::path& archivePath, const char* targetName,
+runtime/src/hle/storage/nand_fs.cpp:294:    std::ifstream file(archivePath, std::ios::binary);
+runtime/src/hle/storage/nand_fs.cpp:379:bool SeedFaceLibResource(const std::filesystem::path& hostPath) {
+runtime/src/hle/storage/nand_fs.cpp:384:        if (std::filesystem::exists(arcPath, ec)) {
+runtime/src/hle/storage/nand_fs.cpp:396:    std::ofstream out(hostPath, std::ios::binary);
+runtime/src/hle/storage/nand_fs.cpp:415:    const std::filesystem::path& hostPath, int mode, bool ios) {
+runtime/src/hle/storage/nand_fs.cpp:435:bool CreateDirectoryPath(const std::filesystem::path& path) {
+runtime/src/hle/storage/nand_fs.cpp:441:    std::filesystem::create_directories(path, ec);
+runtime/src/hle/storage/nand_fs.cpp:442:    return !ec || std::filesystem::is_directory(path, ec);
+runtime/src/hle/storage/nand_fs.cpp:446:bool PathExists(const std::filesystem::path& path) {
+runtime/src/hle/storage/nand_fs.cpp:448:    return std::filesystem::exists(path, ec) && !ec;
+runtime/src/hle/storage/nand_fs.cpp:452:bool IsDirectory(const std::filesystem::path& path) {
+runtime/src/hle/storage/nand_fs.cpp:454:    return std::filesystem::is_directory(path, ec) && !ec;
+runtime/src/hle/storage/nand_fs.cpp:457:bool CreateParentDirectories(const std::filesystem::path& path) {
+aurora-main/lib/dolphin/pad/pad.cpp:554:  const std::filesystem::path basePath = fs_path_from_string(aurora::g_config.userPath);
+aurora-main/lib/dolphin/pad/pad.cpp:1469:  const std::filesystem::path basePath = fs_path_from_string(aurora::g_config.userPath);
+aurora-main/lib/dolphin/pad/pad.cpp:1479:    const char* openMode = std::filesystem::exists(filePath) ? "r+b" : "wb";
+aurora-main/lib/dolphin/card.cpp:17:std::array<std::filesystem::path, 2> cardPaths;
+aurora-main/lib/dolphin/card.cpp:35:#define CARD_READY(slot) (CARD_USE_GCI_FOLDER ? true : std::filesystem::exists(CardChannels[slot]->cardFilename()))
+aurora-main/lib/dolphin/card.cpp:52:std::filesystem::path GetCardFullPath(const std::filesystem::path& path, const aurora::card::ECardSlot slot) {
+aurora-main/lib/dolphin/card.cpp:138:  std::filesystem::path filePath(path);
+aurora-main/lib/dolphin/card.cpp:140:  if (filePath.has_filename() && !std::filesystem::is_directory(filePath)) {
+aurora-main/lib/dolphin/card.cpp:176:  std::filesystem::path cardWorkingDir;
+aurora-main/lib/dolphin/card.cpp:180:    cardWorkingDir = std::filesystem::current_path();
+aurora-main/lib/dolphin/card.cpp:193:    if (std::filesystem::exists(curPath, ec) && CardChannels[i]->open(curPath)) {
+aurora-main/lib/dolphin/card.cpp:198:    } else if (std::filesystem::exists(curPath, ec)) {
+translator/src/Translator.Core/Parsing/Kamek/KamekPulFile.cs:20:    public static KamekPulFile Load(string path) => Parse(File.ReadAllBytes(path));
+translator/src/Translator.Core/Parsing/Rel/RelFile.cs:35:        var raw = File.ReadAllBytes(path);
+Launcher/WiiCompiled.Setup.Common/RuntimeConfiguration.cs:46:            ? new RuntimeConfigSnapshot(true, File.ReadAllBytes(configPath))
+Launcher/WiiCompiled.Setup.Common/RetroWfcPayload.cs:140:            await using (var output = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write,
+translator/src/Translator.Core/Mods/OverlayFunctionBuilder.cs:277:        bytes = File.ReadAllBytes(path);
+aurora-main/lib/card/ICard.hpp:39:  virtual bool open(const std::filesystem::path& filepath) = 0;
+aurora-main/lib/card/ICard.hpp:41:  virtual const std::filesystem::path& cardFilename() const = 0;
+aurora-main/lib/card/ICard.hpp:43:  virtual ProbeResults probeCardFile(const std::filesystem::path& filename) = 0;
+aurora-main/lib/card/CardRawFile.hpp:45:  std::filesystem::path m_filename;
+aurora-main/lib/card/CardRawFile.hpp:401:  ProbeResults probeCardFile(const std::filesystem::path& filename) override;
+aurora-main/lib/card/CardRawFile.hpp:412:  bool open(const std::filesystem::path& filepath) override;
+aurora-main/lib/card/CardRawFile.hpp:424:  const std::filesystem::path& cardFilename() const override { return m_filename; }
+aurora-main/lib/card/FileIO.cpp:13:FileIO::FileIO(const std::filesystem::path& filename, bool truncate) {

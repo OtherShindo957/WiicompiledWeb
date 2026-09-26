@@ -1,0 +1,57 @@
+name: Web platform probe
+on:
+  push:
+    branches: [main, 'web/**']
+    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
+  pull_request:
+    paths: ['CMakeLists.txt', 'web/**', 'runtime/src/platform/web/**', 'runtime/src/input_expr.cpp', 'runtime/include/**', 'runtime/tests/**', '.github/workflows/web-probe.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: web-probe-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned Emscripten
+        run: |
+          git clone https://github.com/emscripten-core/emsdk.git "$RUNNER_TEMP/emsdk"
+          git -C "$RUNNER_TEMP/emsdk" checkout e566f7bdcc7735f44037911c24b87a58a3c93145
+          "$RUNNER_TEMP/emsdk/emsdk" install 6.0.10
+          "$RUNNER_TEMP/emsdk/emsdk" activate 6.0.10
+      - name: Compile probe and run game-free WASM unit tests
+        run: |
+          source "$RUNNER_TEMP/emsdk/emsdk_env.sh"
+          emcmake cmake -S . -B build-web -DWIICOMPILED_WEB=ON -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-web -j2
+          ctest --test-dir build-web --output-on-failure
+      - name: Browser smoke test (software WebGPU, not a performance test)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/web-tests" --no-save playwright@1.62.1
+          "$RUNNER_TEMP/web-tests/node_modules/.bin/playwright" install --with-deps chromium
+          python3 web/serve.py > "$RUNNER_TEMP/web-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://localhost:8000/ > /dev/null; then break; fi
+            sleep 1
+          done
+          NODE_PATH="$RUNNER_TEMP/web-tests/node_modules" WEBGPU_SOFTWARE=1 node web/tests/smoke.cjs
+      - name: Upload only the game-free browser files
+        uses: actions/upload-artifact@v4
+        with:
+          name: wiicompiled-web-platform-probe
+          if-no-files-found: error
+          path: |
+            build-web/site/index.html
+            build-web/site/style.css
+            build-web/site/launcher.js
+            build-web/site/platform.js
+            build-web/site/wiicompiled-web.js
+            build-web/site/wiicompiled-web.wasm
