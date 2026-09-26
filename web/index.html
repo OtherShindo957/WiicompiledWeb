@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WiiCompiled Web — platform probe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <p class="eyebrow">MILESTONE 1 · EXPERIMENT</p>
+    <h1>WiiCompiled Web</h1>
+    <p>Game-free WASM + WebGPU platform probe. This does not run WiiCompiled or Aurora yet.</p>
+    <div class="controls"><button id="start">Click to Start</button><button id="fullscreen">Fullscreen</button></div>
+    <p id="status" role="status">Ready to initialize</p>
+    <canvas aria-label="WebGPU clear-screen output"></canvas>
+    <details open><summary>Debug log</summary>
+      <div class="controls"><button id="copy">Copy Log</button><button id="download">Download Log</button></div>
+      <pre id="log" aria-label="Runtime log"></pre>
+    </details>
+    <p class="note">No game file is needed or uploaded. WebGPU requires HTTPS or localhost. The supplied web logo is not yet available.</p>
+  </main>
+  <script type="module" src="launcher.js"></script>
+</body>
+</html>

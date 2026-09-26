@@ -76,7 +76,7 @@ Keep assets same-origin or give dependencies compatible CORS/CORP policies. Veri
 
 ## Aurora migration
 
-Retain GX → Aurora → WebGPU. First align the pinned Aurora C++ WebGPU headers with a browser binding (investigate Emdawnwebgpu), then split native instance/surface/cache code from portable renderer state. Replace timed waits with continuations for adapter/device/readback; remove native Dawn cache/toggle descriptors. Browser shader compilation/driver caches are opaque; persist only application-owned, content-safe descriptors when useful.
+Retain GX → Aurora → WebGPU. First align the pinned Aurora C++ WebGPU headers with a browser binding ([Emdawnwebgpu is the Emscripten-supported path](https://emscripten.org/docs/porting/multimedia_and_graphics/WebGPU-support.html)), then split native instance/surface/cache code from portable renderer state. Replace timed waits with continuations for adapter/device/readback; remove native Dawn cache/toggle descriptors. Browser shader compilation/driver caches are opaque; persist only application-owned, content-safe descriptors when useful.
 
 Prove synthetic triangle/clear, GX state changes, texture formats, EFB copies/readback ordering and resize/device loss before game use. Native backend enum support is not browser build support. No new GX renderer is justified by current evidence. WebGL2 is deferred: it requires its own compatibility/feature assessment, not a cosmetic “fallback” toggle.
 
@@ -108,4 +108,4 @@ Initial compatibility: modern desktop Chromium with WebGPU in a secure context; 
 
 Milestone 0: these documents and evidence only. Small Milestone 1 experiment: handwritten main → web adapter → async GPU initialization → visible canvas clear → native success log. No game, Aurora, audio, saves or translated code. Only declare success after GPU submission and validation complete; visible errors on unsupported browsers.
 
-Full Milestone 1 remains open until actual WiiCompiled runtime code compiles. Milestones 2–7 remain future work. Add CI only after the probe builds locally; allowlist its three web outputs so inherited assets/generated code cannot enter artifacts. Never use broad repository/build-tree uploads. Commit audit and experiment separately, preserve desktop entry points and open a focused PR with exact verification limitations.
+Full Milestone 1 remains open until actual WiiCompiled runtime code compiles. Milestones 2–7 remain future work. Add CI only after the probe builds locally; allowlist its six web outputs so inherited assets/generated code cannot enter artifacts. Never use broad repository/build-tree uploads. Commit audit and experiment separately, preserve desktop entry points and open a focused PR with exact verification limitations.

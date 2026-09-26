@@ -144,3 +144,7 @@ The inherited tree contains `runtime/assets/wii/shared2/wc24/*`, `assets/dsp/dsp
 Milestone 0 changes documentation only. The companion [architecture](web-architecture.md) selects a local AOT development path and preserves the browser-only setup question as unresolved. A separately scoped Milestone 1 probe may compile only its own handwritten source, initialize JS/WASM, create WebGPU canvas and clear it. That is **not** proof that the upstream runtime or Aurora compiles to WASM.
 
 Before game boot: synthetic guest memory/MMIO/alias tests; FP/paired-single differential tests; guest scheduler ordering/stack tests; Aurora synthetic GX/readback tests; bounded disc-reader ISO extraction tests; storage crash/quota tests; then locally supplied supported PAL image. No Nintendo data in CI. Record compiler/browser versions, failures and actual measurements in the probe verification report.
+
+### Follow-up probe result
+
+After this baseline audit was committed, the selected input-expression and SC serial contracts compiled to wasm32 and passed in Node. Their isolated logic is **Already portable** under that tested configuration; browser device/persistence adapters remain unimplemented. See [probe verification](web-probe.md) for exact scope and GPU limitations.
