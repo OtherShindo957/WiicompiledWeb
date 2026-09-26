@@ -50,3 +50,7 @@ CI in `.github/workflows/web-probe.yml` installs the pinned Emscripten release, 
 ## Next work
 
 Use the [audit](web-port-audit.md) and [architecture decision](web-architecture.md). Resolve checked guest-memory backing, floating-point helpers, cooperative contexts and browser Aurora integration in separately reviewed milestones. Do not replace the probe's native success log with a simulated game screenshot or report full Milestone 1 complete.
+
+## Next increment
+
+[Milestone 2a: compact guest memory](web-guest-memory.md) adds a third WASM contract test and a browser companion. With tests enabled, the smoke suite now expects that companion in the build directory; it is excluded from published probe artifacts. The original results above describe the accepted Milestone 1 baseline.

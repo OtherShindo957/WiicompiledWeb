@@ -109,3 +109,7 @@ Initial compatibility: modern desktop Chromium with WebGPU in a secure context; 
 Milestone 0: these documents and evidence only. Small Milestone 1 experiment: handwritten main → web adapter → async GPU initialization → visible canvas clear → native success log. No game, Aurora, audio, saves or translated code. Only declare success after GPU submission and validation complete; visible errors on unsupported browsers.
 
 Full Milestone 1 remains open until actual WiiCompiled runtime code compiles. Milestones 2–7 remain future work. Add CI only after the probe builds locally; allowlist its six web outputs so inherited assets/generated code cannot enter artifacts. Never use broad repository/build-tree uploads. Commit audit and experiment separately, preserve desktop entry points and open a focused PR with exact verification limitations.
+
+## Implemented follow-up
+
+See [Milestone 2a](web-guest-memory.md) for the tested compact checked-memory adapter. Guest fibers, full FP helper portability and Aurora integration remain subsequent dependencies.

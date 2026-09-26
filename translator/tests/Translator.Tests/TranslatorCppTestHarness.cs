@@ -14,6 +14,7 @@ internal static class TranslatorCppTestHarness
         Path.Combine("runtime", "src", "abi_bridge.cpp"),
         Path.Combine("runtime", "src", "fpu_helpers.cpp"),
         Path.Combine("runtime", "src", "memory.cpp"),
+        Path.Combine("runtime", "src", "memory_diagnostics.cpp"),
         Path.Combine("runtime", "src", "ppc_helpers.cpp"),
     };
 
