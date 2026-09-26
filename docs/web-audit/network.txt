@@ -1,0 +1,54 @@
+Launcher/WiiCompiled.Setup.Common/NodToolProvider.cs:29:        using (var http = new HttpClient())
+Launcher/WiiCompiled.Setup.Common/RetroWfcPayload.cs:101:        using var handler = new HttpClientHandler { AllowAutoRedirect = false };
+Launcher/WiiCompiled.Setup.Common/RetroWfcPayload.cs:102:        using var client = new HttpClient(handler) { Timeout = Timeout.InfiniteTimeSpan };
+Launcher/WiiCompiled.Setup.Common/RetroWfcPayload.cs:122:        HttpClient client, Uri uri, string root, string destination, CancellationToken cancellationToken)
+translator/src/Translator.Cli/Program.cs:292:        using var client = new System.Net.Http.HttpClient();
+aurora-main/lib/gfx/depth_peek.cpp:335:void poll() noexcept {
+aurora-main/lib/gx/shader.cpp:376:    return fmt::format("select({3}, {2}, round({0}.r * 255.0) > round({1}.r * 255.0)) + {4}", a, b, c, zero, d);
+aurora-main/lib/gx/shader.cpp:378:    return fmt::format("select({3}, {2}, round({0}.r * 255.0) == round({1}.r * 255.0)) + {4}", a, b, c, zero, d);
+aurora-main/lib/gx/shader.cpp:381:        "select({3}, {2}, round(dot({0}.rg * 255.0, vec2(1.0, 256.0))) > round(dot({1}.rg * 255.0, vec2(1.0, 256.0))))"
+aurora-main/lib/gx/shader.cpp:386:        "select({3}, {2}, round(dot({0}.rg * 255.0, vec2(1.0, 256.0))) == round(dot({1}.rg * 255.0, vec2(1.0, 256.0))))"
+aurora-main/lib/gx/shader.cpp:391:        "select({3}, {2}, round(dot({0}.rgb * 255.0, vec3(1.0, 256.0, 65536.0))) > round(dot({1}.rgb * 255.0, "
+aurora-main/lib/gx/shader.cpp:396:        "select({3}, {2}, round(dot({0}.rgb * 255.0, vec3(1.0, 256.0, 65536.0))) == round(dot({1}.rgb * 255.0, "
+aurora-main/lib/gx/shader.cpp:400:    return fmt::format("select({3}, {2}, round({0} * 255.0) > round({1} * 255.0)) + {4}", a, b, c, zero, d);
+aurora-main/lib/gx/shader.cpp:402:    return fmt::format("select({3}, {2}, round({0} * 255.0) == round({1} * 255.0)) + {4}", a, b, c, zero, d);
+aurora-main/lib/gx/shader.cpp:831:          attn = select(0.0, max(0.0, dot({0}, light.dir)), dot({0}, ldir) >= 0.0);
+aurora-main/lib/gx/shader.cpp:834:          attn = select(select(0.0, 1.0, cos_attn > 0.0), max(0.0, cos_attn / dist_attn), dist_attn != 0.0);)""",
+aurora-main/lib/gx/shader.cpp:844:          ldir = select({1}, ldir / max(dist, 1e-20), dist > 0.0);)""",
+aurora-main/lib/gx/shader.cpp:932:          "\n    let in_vidx = select(vidx_a, vidx_b, use_b);"
+aurora-main/lib/gx/shader.cpp:935:          "\n    let in_pos = select(pos_a, pos_b, use_b);"
+aurora-main/lib/gx/shader.cpp:938:          "\n    let in_pnmtxidx = select(pnmtxidx_a, pnmtxidx_b, use_b);"
+aurora-main/lib/gx/shader.cpp:941:          "\n    let mv_pos = select(mv_pos_a, mv_pos_b, use_b);",
+aurora-main/lib/gx/shader.cpp:974:        "\n    let x_sign = select(-1.0, 1.0, (vidx & 1u) != 0u);"
+aurora-main/lib/gx/shader.cpp:975:        "\n    let y_sign = select(-1.0, 1.0, vidx >= 2u);"
+aurora-main/lib/gx/shader.cpp:988:        "\n    let dir_px = select(vec2f(1.0, 0.0), normalize(delta_px), dot(delta_px, delta_px) > 1e-10);"
+aurora-main/lib/gx/shader.cpp:991:        "\n    let offset_px = perp_px * (line_width / 2.0) * select(-1.0, 1.0, (vidx & 1u) != 0u);"
+aurora-main/lib/gx/shader.cpp:993:        "\n    let clip_base = select(clip_a, clip_b, use_b);"
+aurora-main/lib/gx/shader.cpp:1010:      "\n    let mv_nrm = select(nrm_tmp, normalize(nrm_tmp), dot(nrm_tmp, nrm_tmp) > 1e-10);",
+aurora-main/lib/gx/shader.cpp:1678:  return select(((v & 0xFFu) << 8u) | (v >> 8u), v, le);
+aurora-main/lib/gx/shader.cpp:2020:    lerp_part += select(128, 127, is_sub);
+aurora-main/lib/gx/shader.cpp:2023:  var result = select(d_part + lerp, d_part - lerp, is_sub);
+aurora-main/lib/gfx/depth_peek.hpp:15:void poll() noexcept;
+aurora-main/lib/dolphin/gx/GXCpu2Efb.cpp:8:  aurora::gfx::depth_peek::poll();
+runtime/include/hle/network_poll_contract.h:150:    const int result = poll(active.data(), activeCount, 0);
+runtime/src/music_attenuation.cpp:419:    dbus.connection_set_exit_on_disconnect(conn, 0u);
+runtime/src/hle/net/network_socket.cpp:14:    NativeSocket s = ::socket(nativeAf, nativeType, protocol);
+runtime/src/hle/net/network_socket.cpp:110:    NativeSocket s = ::socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+runtime/src/hle/net/network_socket.cpp:119:    connect(s, reinterpret_cast<const sockaddr*>(&remote), sizeof(remote));
+runtime/src/hle/net/network_socket.cpp:181:            : connect(s->native, reinterpret_cast<sockaddr*>(&addr), sizeof(addr));
+runtime/src/discord_presence.cpp:352:                const int socketFd = ::socket(AF_UNIX, SOCK_STREAM, 0);
+runtime/src/discord_presence.cpp:359:                if (::connect(socketFd, reinterpret_cast<const sockaddr*>(&address), sizeof(address)) == 0) {
+runtime/src/hle/net/network_core.cpp:149:        const int result = WSAStartup(MAKEWORD(2, 2), &data);
+runtime/src/hle/net/network_core.cpp:151:            RT_LOGF(RT_TAG_NET, "WSAStartup failed: %d\n", result);
+runtime/src/hle/net/network_core.cpp:290:// select() on write+except, never WSAPoll, since WSAPoll does not report a failed
+runtime/src/hle/net/network_core.cpp:304:    const int ret = select(0, nullptr, &writeFds, &exceptFds, timeoutMs < 0 ? nullptr : &limit);
+runtime/src/hle/net/network_core.cpp:313:    const int ret = poll(&descriptor, 1, timeoutMs);
+runtime/src/hle/net/network_core.cpp:366:    const int ret = poll(&pfd, 1, timeoutMs);
+runtime/src/hle/net/network_core.cpp:376:    closesocket(socket);
+runtime/src/hle/net/network_core.cpp:385:    ioctlsocket(socket, FIONBIO, &mode);
+runtime/src/hle/net/network_core.cpp:422:    NativeSocket native = ::socket(socket.af, socket.type, socket.protocol);
+runtime/src/hle/net/network_core.cpp:431:    const int ret = connect(native, reinterpret_cast<sockaddr*>(&addr), sizeof(addr));
+runtime/src/hle/net/network_deferred.cpp:238:    const int gai = getaddrinfo(node, service, hintPtr, &nativeResults);
+runtime/src/hle/net/network_deferred.cpp:692:// A blocking connect issues the host connect() at submission time, because the
+runtime/src/hle/net/network_deferred.cpp:699:        const int ret = connect(work.nativeFd, reinterpret_cast<sockaddr*>(&work.peerAddress),
+runtime/src/hle/net/network_deferred.cpp:709:                // connect by re-issuing connect() on it, so reporting EISCONN

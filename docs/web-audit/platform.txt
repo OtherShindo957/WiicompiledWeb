@@ -1,0 +1,261 @@
+aurora-main/lib/window.cpp:25:#if defined(_WIN32)
+aurora-main/lib/window.cpp:65:#if defined(_WIN32)
+aurora-main/lib/window.cpp:105:  auto* hwnd = static_cast<HWND>(SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, nullptr));
+aurora-main/lib/window.cpp:122:  auto* hwnd = static_cast<HWND>(SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, nullptr));
+aurora-main/lib/window.cpp:135:#if defined(_WIN32)
+aurora-main/lib/window.cpp:436:#if defined(_WIN32)
+aurora-main/lib/window.cpp:462:#if defined(_WIN32)
+aurora-main/lib/window.cpp:487:#if !defined(_WIN32) && !defined(__APPLE__)
+runtime/src/fiber_manager.cpp:528:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:24:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:97:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:127:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:258:#if defined(__APPLE__)
+aurora-main/lib/aurora.cpp:266:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:275:#if defined(_WIN32)
+aurora-main/lib/aurora.cpp:617:#if defined(_WIN32) && defined(DAWN_ENABLE_BACKEND_D3D11)
+aurora-main/lib/aurora.cpp:626:#if !defined(_WIN32) && defined(DAWN_ENABLE_BACKEND_D3D11)
+aurora-main/lib/aurora.cpp:1545:#if defined(__APPLE__)
+aurora-main/lib/aurora.cpp:1584:#if defined(TRACY_ENABLE) && defined(_WIN32)
+aurora-main/cmake/AuroraCopyRuntimeDLLs.cmake:21:  # Copy DXC DLLs that Dawn loads via LoadLibrary at runtime
+runtime/include/hle/network_poll_contract.h:10:#ifdef _WIN32
+runtime/include/hle/network_poll_contract.h:21:#ifdef _WIN32
+runtime/include/hle/network_poll_contract.h:58:#ifdef _WIN32
+runtime/include/hle/network_poll_contract.h:147:#ifdef _WIN32
+translator/src/Translator.Core/CodeGen/CxxLinearCodeGenerator.StateFreeAbi.cs:142:    // Do not use Clang's __regcall here: a state-free callee using host r12 as scratch once collided
+runtime/include/nand_settings.h:15:#ifdef _WIN32
+runtime/include/nand_settings.h:178:#ifdef _WIN32
+runtime/include/nand_settings.h:201:#ifdef _WIN32
+aurora-main/lib/internal.hpp:37:#elif _WIN32
+aurora-main/lib/internal.hpp:54:#elif _WIN32
+aurora-main/lib/internal.hpp:71:#elif _WIN32
+runtime/include/system_bridge.h:19:#if defined(_WIN32)
+aurora-main/lib/logging.cpp:11:#if defined(_WIN32)
+aurora-main/lib/logging.cpp:31:#if defined(_WIN32)
+aurora-main/lib/system_info.hpp:9:#if __APPLE__
+runtime/include/fiber_manager.h:11:#if defined(_WIN32)
+runtime/include/fiber_manager.h:102:#if defined(_WIN32)
+aurora-main/lib/dawn/BackendBinding.cpp:22:#elif defined(SDL_PLATFORM_WIN32)
+aurora-main/lib/dawn/BackendBinding.cpp:24:  desc->hwnd = SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, nullptr);
+aurora-main/lib/dawn/BackendBinding.cpp:25:  desc->hinstance = SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_INSTANCE_POINTER, nullptr);
+runtime/include/memory_access.h:21:#if defined(_WIN32)
+aurora-main/lib/webgpu/gpu.cpp:32:#if defined(WEBGPU_DAWN) && defined(_WIN32)
+aurora-main/lib/webgpu/gpu.cpp:676:#if _WIN32
+aurora-main/lib/webgpu/gpu.cpp:844:#if defined(WEBGPU_DAWN) && defined(_WIN32)
+runtime/include/aurora_events.h:14:#if defined(_WIN32)
+runtime/include/aurora_events.h:65:#if defined(_WIN32)
+runtime/include/isa/ppc_isa_fpenv.h:15:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_fpenv.h:19:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_fpenv.h:41:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_fpenv.h:43:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_fpenv.h:45:    __asm__ __volatile__("mrs %0, fpcr" : "=r"(fpcr));
+runtime/include/isa/ppc_isa_fpenv.h:52:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_fpenv.h:54:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_fpenv.h:58:    __asm__ __volatile__("mrs %0, fpcr" : "=r"(fpcr));
+runtime/include/isa/ppc_isa_fpenv.h:60:    __asm__ __volatile__("msr fpcr, %0" :: "r"(fpcr));
+runtime/src/music_attenuation.cpp:14:#if defined(_WIN32)
+runtime/src/music_attenuation.cpp:19:#elif defined(__linux__)
+runtime/src/music_attenuation.cpp:162:#if defined(_WIN32)
+runtime/src/music_attenuation.cpp:199:#elif defined(__linux__)
+runtime/src/music_attenuation.cpp:284:        handle = dlopen("libdbus-1.so.3", RTLD_NOW | RTLD_LOCAL);
+runtime/src/music_attenuation.cpp:452:#if defined(_WIN32)
+runtime/src/music_attenuation.cpp:456:#elif defined(__linux__)
+runtime/include/guest_flat_memory.h:18:#if defined(__x86_64__)
+runtime/include/guest_flat_memory.h:22:#elif defined(__aarch64__) && defined(__APPLE__)
+runtime/include/guest_flat_memory.h:28:#elif defined(__aarch64__)
+runtime/include/guest_flat_memory.h:32:// 4.9). There mmap() silently ignores a hint above the ceiling and hands back an
+runtime/include/guest_flat_memory.h:76:#if defined(_WIN32) || defined(__x86_64__)
+runtime/src/host_cpu_baseline.cpp:13:#if defined(__x86_64__)
+runtime/src/host_cpu_baseline.cpp:20:#if defined(_WIN32)
+runtime/src/host_cpu_baseline.cpp:48:    __asm__ __volatile__("xgetbv" : "=a"(eax), "=d"(edx) : "c"(0));
+runtime/src/host_cpu_baseline.cpp:156:#if defined(_WIN32)
+runtime/src/host_cpu_baseline.cpp:194:#if defined(_WIN32)
+runtime/src/host_cpu_baseline.cpp:225:#else  // !defined(__x86_64__)
+runtime/src/host_cpu_baseline.cpp:231:#endif  // defined(__x86_64__)
+runtime/include/runtime_config.h:23:#ifdef _WIN32
+runtime/include/runtime_config.h:170:#if defined(__APPLE__)
+runtime/include/runtime_config.h:173:#elif defined(__linux__)
+runtime/include/runtime_config.h:175:#elif defined(_WIN32)
+runtime/include/runtime_config.h:195:#ifdef _WIN32
+runtime/include/runtime_config.h:208:#elif defined(__APPLE__)
+runtime/include/runtime_config.h:260:#ifdef _WIN32
+runtime/include/runtime_config.h:267:#elif defined(__APPLE__)
+runtime/src/memory.cpp:23:#if defined(_WIN32)
+runtime/src/memory.cpp:389:#if defined(_WIN32)
+aurora-main/lib/dolphin/os/OSTime.cpp:41:#if defined(_WIN32)
+runtime/src/wii_remote_input.cpp:393:#if defined(_WIN32)
+runtime/src/hle/gx/gx_utils.cpp:36:#if defined(__APPLE__)
+runtime/include/isa/ppc_isa_float.h:81:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:83:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:94:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:96:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:103:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:105:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:112:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:115:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:123:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:126:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:134:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:139:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:156:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:158:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:166:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:168:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:175:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:179:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:201:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:208:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:529:#if defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:572:#endif // defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:576:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:578:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:609:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:611:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:621:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:623:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:725:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:729:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:737:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:741:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:749:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:753:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:762:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:765:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:772:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:774:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:784:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:786:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_float.h:796:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_float.h:798:#elif defined(__aarch64__)
+runtime/src/system_bridge.cpp:12:#if defined(_WIN32)
+runtime/src/host_context.cpp:3:#if defined(_WIN32)
+runtime/src/host_context.cpp:11:#elif defined(__APPLE__) && defined(__aarch64__)
+runtime/src/host_context.cpp:17:#elif defined(__linux__)
+runtime/src/host_context.cpp:28:#if defined(_WIN32)
+runtime/src/host_context.cpp:75:#elif defined(__APPLE__) && defined(__aarch64__)
+runtime/src/host_context.cpp:112:    context->stack = mmap(nullptr, totalSize, PROT_READ | PROT_WRITE,
+runtime/src/host_context.cpp:119:    if (mprotect(context->stack, guardSize, PROT_NONE) != 0) {
+runtime/src/host_context.cpp:161:#elif defined(__linux__)
+runtime/include/isa/ppc_isa_config.h:7:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_config.h:9:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_config.h:20:#if defined(_WIN32)
+runtime/include/isa/ppc_isa_config.h:23:#define MKW_PPC_INTERNAL_CALL __regcall
+runtime/include/isa/ppc_isa_config.h:27:// __regcall has no portable non-Windows equivalent worth chasing here - the extra register
+aurora-main/lib/system_info.cpp:4:#if _WIN32
+aurora-main/lib/system_info.cpp:36:#elif __APPLE__
+aurora-main/lib/system_info.cpp:64:#if defined(__x86_64__) || defined(_M_X64) || defined(_M_X64)
+aurora-main/lib/system_info.cpp:66:#elif defined(__aarch64__) || defined(_M_ARM64)
+aurora-main/lib/system_info.cpp:76:#if _WIN32
+aurora-main/lib/system_info.cpp:191:#elif __APPLE__
+aurora-main/lib/dolphin/os/OSMemory.cpp:1:#ifdef _WIN32
+aurora-main/lib/dolphin/os/OSMemory.cpp:39:#if _WIN32
+aurora-main/lib/dolphin/os/OSMemory.cpp:51:#if _WIN32
+aurora-main/lib/dolphin/os/OSMemory.cpp:53:  const auto addr = VirtualAlloc(
+aurora-main/lib/dolphin/os/OSMemory.cpp:100:  void* bulkChunk = VirtualAlloc(
+aurora-main/lib/dolphin/os/OSMemory.cpp:125:  void* result = VirtualAlloc(mem1Address, size, MEM_COMMIT, PAGE_READWRITE);
+runtime/src/platform/host_platform.cpp:5:#if defined(_WIN32)
+runtime/src/platform/host_platform.cpp:15:#if defined(__APPLE__)
+runtime/src/platform/host_platform.cpp:23:#if defined(_WIN32)
+runtime/src/platform/host_platform.cpp:36:#elif defined(__APPLE__)
+runtime/src/platform/host_platform.cpp:55:#if defined(_WIN32)
+runtime/src/platform/host_platform.cpp:62:#elif defined(__APPLE__)
+runtime/src/platform/host_platform.cpp:78:#if defined(_WIN32)
+runtime/include/isa/ppc_isa_quantized.h:42:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:49:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_quantized.h:61:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:74:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_quantized.h:83:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:117:#endif // defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:122:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:126:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_quantized.h:142:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:146:#elif defined(__aarch64__)
+runtime/include/isa/ppc_isa_quantized.h:376:#if defined(__x86_64__)
+runtime/include/isa/ppc_isa_quantized.h:386:#elif defined(__aarch64__)
+runtime/src/settings_overlay.cpp:35:#if defined(_WIN32)
+runtime/src/guest_flat_memory_macos.cpp:65:        auto* host = static_cast<uint8_t*>(mmap(nullptr, r.size, PROT_READ | PROT_WRITE, MAP_SHARED, s.fd, Offset(r)));
+runtime/src/guest_flat_memory_macos.cpp:66:        auto* guest = mmap(g_base + r.base, r.size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_FIXED, s.fd, Offset(r));
+runtime/src/hle/vi.cpp:24:#if defined(_WIN32)
+runtime/src/hle/vi.cpp:170:#if defined(_WIN32)
+runtime/src/hle/vi.cpp:208:#if defined(_WIN32)
+runtime/src/discord_presence.cpp:19:#if defined(_WIN32)
+runtime/src/discord_presence.cpp:83:#if defined(_WIN32)
+runtime/src/discord_presence.cpp:251:#if defined(_WIN32)
+runtime/src/hle/storage/riivolution.cpp:89:#ifdef _WIN32
+runtime/src/hle/storage/nand_fs.cpp:104:#ifdef _WIN32
+runtime/src/hle/storage/nand_internal.h:35:#ifdef _WIN32
+runtime/src/guest_flat_memory.cpp:22:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:44:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:68:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:80:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:81:using VirtualAlloc2Fn = PVOID(WINAPI*)(HANDLE, PVOID, SIZE_T, ULONG, ULONG, void*, ULONG);
+runtime/src/guest_flat_memory.cpp:84:VirtualAlloc2Fn g_virtualAlloc2 = nullptr;
+runtime/src/guest_flat_memory.cpp:91:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:116:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:164:#if !defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:195:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:206:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:210:    return mprotect(address, static_cast<size_t>(size), protection) == 0;
+runtime/src/guest_flat_memory.cpp:214:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:218:    if (kernelBase == nullptr) kernelBase = LoadLibraryW(L"kernelbase.dll");
+runtime/src/guest_flat_memory.cpp:221:            reinterpret_cast<VirtualAlloc2Fn>(GetProcAddress(kernelBase, "VirtualAlloc2"));
+runtime/src/guest_flat_memory.cpp:227:            "Flat guest memory requires Windows 10 1803 or newer (VirtualAlloc2/MapViewOfFile3 "
+runtime/src/guest_flat_memory.cpp:235:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:273:    void* reserved = mmap(requested, kGuestSpaceSize + kAllocationGranularity, kProtNone,
+runtime/src/guest_flat_memory.cpp:293:               "39-bit virtual addresses) - in the latter case mmap() silently substitutes an "
+runtime/src/guest_flat_memory.cpp:302:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:314:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:331:    void* view = mmap(target, static_cast<size_t>(mappedSize), kProtReadWrite,
+runtime/src/guest_flat_memory.cpp:345:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:353:    // range came from is already demand-zero backed, so mprotect() alone both "commits" and
+runtime/src/guest_flat_memory.cpp:422:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:557:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:582:            mmap(nullptr, static_cast<size_t>(rounded), kProtReadWrite, MAP_SHARED, section.fd, 0));
+runtime/src/guest_flat_memory.cpp:609:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:823:#if defined(_WIN32)
+runtime/src/guest_flat_memory.cpp:852:#if !defined(_WIN32)
+runtime/src/hle/storage/nand_async.cpp:252:#ifdef _WIN32
+runtime/src/hle/storage/nand_async.cpp:271:#ifdef _WIN32
+runtime/src/main.cpp:26:#if !defined(_WIN32)
+runtime/src/main.cpp:30:#if defined(_WIN32)
+runtime/src/main.cpp:45:#if defined(__x86_64__)
+runtime/src/main.cpp:94:#if defined(_WIN32)
+runtime/src/main.cpp:212:#if defined(_WIN32)
+runtime/src/main.cpp:248:#if defined(_WIN32)
+runtime/src/main.cpp:260:#if defined(_WIN32)
+runtime/src/main.cpp:280:#if defined(_WIN32)
+runtime/src/main.cpp:315:#if defined(_WIN32)
+runtime/src/main.cpp:345:#if defined(_WIN32)
+runtime/src/main.cpp:418:#if defined(_WIN32)
+runtime/src/main.cpp:563:#if defined(_WIN32)
+runtime/src/main.cpp:731:#if defined(_WIN32)
+runtime/src/main.cpp:777:#if defined(_WIN32)
+runtime/src/main.cpp:928:#if defined(_WIN32)
+runtime/src/main.cpp:975:#if defined(_M_X64) || defined(__x86_64__)
+runtime/src/main.cpp:1126:#if defined(__x86_64__)
+runtime/src/main.cpp:1310:#if defined(_WIN32)
+runtime/src/main.cpp:1386:#if defined(__APPLE__)
+runtime/src/main.cpp:1391:#elif defined(__linux__)
+runtime/src/main.cpp:1395:#elif defined(_WIN32)
+runtime/src/hle/net/network_internal.h:37:#ifdef _WIN32
+runtime/src/hle/net/network_internal.h:45:#define SECURITY_WIN32
+runtime/src/hle/net/network_internal.h:117:#ifdef _WIN32
+runtime/src/hle/storage/nand_api.cpp:10:#ifdef __linux__
+runtime/src/hle/storage/nand_api.cpp:58:#ifdef _WIN32
+runtime/src/hle/storage/nand_api.cpp:65:#elif defined(__linux__)
+runtime/src/hle/storage/nand_api.cpp:431:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:146:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:163:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:176:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:253:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:282:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:294:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:363:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:375:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:383:#ifdef _WIN32
+runtime/src/hle/net/network_core.cpp:402:#ifdef _WIN32
+runtime/src/hle/net/network_ssl.cpp:5:#ifndef _WIN32
+runtime/src/hle/net/network_ssl.cpp:69:#ifdef _WIN32
+runtime/src/hle/net/network_ssl.cpp:241:#ifdef _WIN32
+runtime/src/hle/net/network_ssl.cpp:574:#ifdef __APPLE__
+runtime/src/hle/net/network_ssl.cpp:922:#ifdef _WIN32
